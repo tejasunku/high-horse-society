@@ -57,7 +57,7 @@ class EssayJudge(EssayJudgeInterface):
         Analyze this essay for both information density and logical validity.
 
         Essay Title: {self._title}
-        Essay Body: {self._body[:2000]}...  # Truncated for analysis
+        Essay Body: {self._body}... 
 
         For information density, evaluate if this essay has sufficient substantive content relative to its length. Consider:
         - Does it provide substantial content beyond filler words?
