@@ -32,6 +32,8 @@ At the end of this step, we will have a service that:
 4. Approves essays that don't fail any of the above three criteria
 5. Is able to manage more than one request at a time (concurrency)
 
+The reject/approval functionality must be validated with concrete examples
+
 ## Version 0.1
 
 For an essay that is passed, it is saved to a backend PostgreSQL service.  

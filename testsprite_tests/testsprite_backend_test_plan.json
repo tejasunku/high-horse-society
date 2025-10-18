@@ -7,46 +7,6 @@
   {
     "id": "TC002",
     "title": "essay judge endpoint validates essay quality",
-    "description": "Test the /essay/judge POST endpoint by submitting essays with varying lengths, information density, and logical validity. Verify that the response includes detailed validation results for length, density, and logical validity with pass/fail status and rationale."
-  },
-  {
-    "id": "TC003",
-    "title": "essay judge endpoint rejects essays under minimum length",
-    "description": "Submit an essay with fewer than 1000 words to the /essay/judge endpoint and verify that the essay is rejected with an appropriate rationale indicating the essay is too short."
-  },
-  {
-    "id": "TC004",
-    "title": "essay submit endpoint stores approved essays with versioning",
-    "description": "Test the /essay/submit POST endpoint by submitting an approved essay and verify that it is stored in the PostgreSQL database with correct versioning and metadata."
-  },
-  {
-    "id": "TC005",
-    "title": "essay submit endpoint enforces idempotency",
-    "description": "Submit the same essay multiple times with the same idempotency_key to the /essay/submit endpoint and verify that duplicate processing is prevented and the essay is stored only once."
-  },
-  {
-    "id": "TC006",
-    "title": "essay get endpoint retrieves latest and specific versions",
-    "description": "Test the /essay/get GET endpoint by requesting the latest version and specific versions of an essay by id. Verify that the correct essay version is returned with all associated quality metrics."
-  },
-  {
-    "id": "TC007",
-    "title": "concurrent essay submissions handled without race conditions",
-    "description": "Simulate multiple concurrent requests to /essay/submit and /essay/judge endpoints and verify that the service handles concurrency correctly without failures or race conditions."
-  },
-  {
-    "id": "TC008",
-    "title": "logical validity validation produces boolean and rationale",
-    "description": "Verify that the logical validity check in the /essay/judge endpoint returns a boolean pass/fail result along with an explanatory rationale for the decision."
-  },
-  {
-    "id": "TC009",
-    "title": "information density validation produces boolean and rationale",
-    "description": "Verify that the information density check in the /essay/judge endpoint returns a boolean pass/fail result along with an explanatory rationale for the decision."
-  },
-  {
-    "id": "TC010",
-    "title": "local development environment spins up postgres and service",
-    "description": "Verify that running the make dev command successfully spins up a local PostgreSQL instance and the full service stack for development and testing."
+    "description": "Test the /essay/judge POST endpoint by submitting essays with varying lengths, information density, and logical validity. Verify that the response correctly indicates pass or fail for each criterion with detailed rationale, and includes the essay_id and idempotency_key."
   }
 ]

@@ -6,12 +6,12 @@
   "backendAuthType": "public",
   "executionArgs": {
     "projectName": "high-horse-society",
-    "projectPath": "c:/Users/tejasunku/Documents/Github/high-horse-society",
+    "projectPath": "C:\\Users\\tejasunku\\Documents\\Github\\high-horse-society",
     "testIds": [],
     "additionalInstruction": "",
     "envs": {
       "API_KEY": "sk-user-iybLu9HjNiqAK58hL3JBARNzzW1y8oFt8cR3Fn9KU8zmE8aWGulay1TdZtkaVoJxQUMr6bavsfIDJ2LhZLENGVBHQgXPaPgEnpwFsKzxOn46HgeoNtx1rkDXwpJ1K8bDTGk"
     }
   },
-  "proxy": "http://830a0804-0487-4582-8b94-6fc80a30cceb:TfakI1WyvDEXQUCgMZA7hffvjtpzsaaD@tun.testsprite.com:8080"
+  "proxy": "http://de85a568-394d-4313-9d93-e4ffe7b36f93:H1GgTdV5rXhbhMz6NEJdznqLGfAbBaxi@tun.testsprite.com:8080"
 }
