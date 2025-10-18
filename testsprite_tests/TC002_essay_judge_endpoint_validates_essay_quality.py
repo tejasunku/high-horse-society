@@ -20,16 +20,16 @@ def test_essay_judge_endpoint_validates_essay_quality():
         },
         {
             "title": "Low Information Density Essay",
-            "body": "This is a lengthy text but it contains a lot of filler words and little real information. " * 50,  # ~600 words, likely low density
+            "body": "This is a lengthy text but it contains a lot of filler words and little real information. " * 50,  # ~850 words, likely low density
             "sources": [],
             "expected": {
-                "length": False,  # May fail length, adjusted to test length or density fail
+                "length": False,  # Fails length since 850 < 1000
             }
         },
         {
             "title": "Logically Invalid Essay",
             "body": (
-                "This essay has enough length " + ("word " * 980) + 
+                "This essay has enough length " + ("word " * 1000) +
                 " but it contradicts itself and lacks logical coherence."  # Over 1000 words, logically invalid content simulated
             ),
             "sources": [],
