@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  fastapi-service:
+    build: ./apps/backend/fastapi-service
+    ports:
+      - "8000:8000"
+    environment:
+      - UV_CACHE_DIR=/tmp/uv-cache
+    volumes:
+      - ./apps/backend/fastapi-service:/app
+    command: uv run uvicorn fastapi_service.main:app --host 0.0.0.0 --port 8000 --reload

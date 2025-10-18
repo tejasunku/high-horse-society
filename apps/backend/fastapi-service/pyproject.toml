@@ -1,0 +1,20 @@
+[project]
+name = "fastapi-service"
+version = "0.1.0"
+description = "FastAPI service for essay judging"
+authors = [{name = "High Horse Society"}]
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]"
+]
+requires-python = ">=3.9"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = []
+
+[project.scripts]
+start = "fastapi_service.main:start"
