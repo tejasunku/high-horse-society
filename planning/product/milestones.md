@@ -22,7 +22,15 @@ This version is for a simple fastapi backend with the following functionality:
 
 }
 
-It must be compilable and runnable as a docker image
+It must be compilable and runnable as a docker image.
+
+At the end of this step, we will have a service that:
+
+1. Rejects essays less than 1000 words in length
+2. Rejects essays not matching information density
+3. Rejects essays that are not logically valid
+4. Approves essays that don't fail any of the above three criteria
+5. Is able to manage more than one request at a time (concurrency)
 
 ## Version 0.1
 
