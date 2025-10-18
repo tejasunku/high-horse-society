@@ -14,6 +14,9 @@ class EssayService:
         # Create essay judge instance
         judge = EssayJudge(submission.title, submission.body)
 
+        # Initialize LLM validations asynchronously
+        await judge.initialize_validations()
+
         # Overall validity: all validations must pass
         overall_valid = judge.length.isValid and judge.density.isValid and judge.logical_validity.isValid
 

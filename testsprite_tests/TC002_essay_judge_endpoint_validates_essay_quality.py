@@ -29,8 +29,14 @@ def test_essay_judge_endpoint_validates_essay_quality():
         {
             "title": "Logically Invalid Essay",
             "body": (
-                "This essay has enough length " + ("word " * 1000) +
-                " but it contradicts itself and lacks logical coherence."  # Over 1000 words, logically invalid content simulated
+                "The sky is blue and this is a fact that cannot be disputed. " +
+                "All birds can fly and this is universally true. " +
+                "Water is wet by definition and this cannot be argued. " +
+                "However, the sky is definitely not blue, and in fact, the sky has no color at all. " +
+                "All birds cannot fly because penguins are birds that cannot fly. " +
+                "Water is not wet because wetness is a subjective experience. " +
+                "These contradictions make the entire essay logically invalid. " +
+                ("word " * 1000)  # Fill to meet length requirement
             ),
             "sources": [],
             "expected": {
