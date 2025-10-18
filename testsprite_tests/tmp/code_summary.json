@@ -1,0 +1,139 @@
+{
+  "tech_stack": ["Python", "FastAPI", "Pydantic", "Uvicorn"],
+  "features": [
+    {
+      "name": "Essay Judging API",
+      "description": "API to validate and judge essays based on length, information density, and logical validity. Includes health check endpoint.",
+      "files": ["apps/backend/fastapi-service/fastapi_service/main.py"],
+      "api_doc": {
+        "openapi": "3.0.0",
+        "info": {
+          "title": "Essay Judging Service",
+          "version": "0.1.0",
+          "description": "Service for judging essays"
+        },
+        "paths": {
+          "/health": {
+            "get": {
+              "summary": "Health check",
+              "responses": {
+                "200": {
+                  "description": "Healthy status",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "/essay/judge": {
+            "post": {
+              "summary": "Judge an essay",
+              "requestBody": {
+                "required": true,
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/EssaySubmission"
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "200": {
+                  "description": "Essay judgment result",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/EssayJudgment"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "components": {
+          "schemas": {
+            "EssaySubmission": {
+              "type": "object",
+              "properties": {
+                "idempotency_key": {
+                  "type": "string"
+                },
+                "essay_id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "body": {
+                  "type": "string"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": ["title", "body"]
+            },
+            "ValidationResult": {
+              "type": "object",
+              "properties": {
+                "isValid": {
+                  "type": "boolean"
+                },
+                "rationale": {
+                  "type": "string"
+                }
+              },
+              "required": ["isValid", "rationale"]
+            },
+            "EssayJudgment": {
+              "type": "object",
+              "properties": {
+                "isValid": {
+                  "type": "boolean"
+                },
+                "length": {
+                  "$ref": "#/components/schemas/ValidationResult"
+                },
+                "density": {
+                  "$ref": "#/components/schemas/ValidationResult"
+                },
+                "logical_validity": {
+                  "$ref": "#/components/schemas/ValidationResult"
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "essay_id": {
+                  "type": "string"
+                },
+                "idempotency_key": {
+                  "type": "string"
+                }
+              },
+              "required": ["isValid", "length", "density", "logical_validity", "sources", "essay_id", "idempotency_key"]
+            }
+          }
+        }
+      }
+    }
+  ]
+}
